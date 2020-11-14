@@ -189,19 +189,21 @@
             const prediction = model.predict(tensor);
             const predictedValues = prediction.dataSync();
             var isThereAnyPrediction = false;
-            var predMax = 0;
+                        var predMax = 0;
             var predMaxIndex = 0;
+            var predMax2nd = 0;
+            var predMax2ndIndex = 0;
             
             for (index = 0; index < predictedValues.length; index++) {
                 if (predictedValues[index] > predMax) {
+                    predMax2nd = predMax;
+                    predMax2ndIndex = predMaxIndex;
                     predMax = predictedValues[index];
                     predMaxIndex = index;
                 }
             }
-            document.getElementById('rightside').innerHTML = '<br>The best classification is ' + predMaxIndex + ' with an output of ' + predMax + '.';
-            /* if (!isThereAnyPrediction) {
-             *    document.getElementById('rightside').innerHTML = '<br>Unable to Predict';
-             } */
+            document.getElementById('rightside').innerHTML = '<br>The best classification is ' + predMaxIndex + ' with an output of ' + predMax + '.' + <br>;
+            document.getElementById('rightside').innerHTML += '<br>The 2nd best classification is ' + predMax2ndIndex + ' with an output of ' + predMax2nd + '.';
         }
     </script>
 
