@@ -193,10 +193,11 @@
                     isThereAnyPrediction = true;
                     document.getElementById('rightside').innerHTML = '<br/>Identified Number: ' + index + ' with liklihood ' + predictedValues[index] + '.';
                 }
+                document.getElementById('rightside').innerHTML = document.getElementById('rightside').innerHTML + predictedValues[index] + '.';
             }
-            if (!isThereAnyPrediction) {
-                document.getElementById('rightside').innerHTML = '<br>Unable to Predict';
-            }
+            # if (!isThereAnyPrediction) {
+            #     document.getElementById('rightside').innerHTML = '<br>Unable to Predict';
+            # }
         }
     </script>
 
