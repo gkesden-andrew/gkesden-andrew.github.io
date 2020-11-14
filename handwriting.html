@@ -194,11 +194,11 @@
             
             for (index = 0; index < predictedValues.length; index++) {
                 if (predictedValues[index] > predMax) {
-                    predMax = predictedVales[index];
+                    predMax = predictedValues[index];
                     predMaxIndex = index;
                 }
             }
-            document.getElementById('rightside').innerHTML = '<br>The best classification is ' + index + ' with an output of ' + predMax + '.';
+            document.getElementById('rightside').innerHTML = '<br>The best classification is ' + predMaxIndex + ' with an output of ' + predMax + '.';
             /* if (!isThereAnyPrediction) {
              *    document.getElementById('rightside').innerHTML = '<br>Unable to Predict';
              } */
