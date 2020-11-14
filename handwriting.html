@@ -189,13 +189,16 @@
             const prediction = model.predict(tensor);
             const predictedValues = prediction.dataSync();
             var isThereAnyPrediction = false;
+            var predMax = 0;
+            var predMaxIndex = 0;
+            
             for (index = 0; index < predictedValues.length; index++) {
-                if (predictedValues[index] > 0.5) {
-                    isThereAnyPrediction = true;
-                    document.getElementById('rightside').innerHTML = '<br/>Identified Number: ' + index + ' with liklihood ' + predictedValues[index] + '.';
+                if (predictedValues[index] > predMax) {
+                    predMax = predictedVales[index];
+                    predMaxIndex = index;
                 }
-                document.getElementById('rightside').innerHTML = document.getElementById('rightside').innerHTML + predictedValues[index] + '.';
             }
+            document.getElementById('rightside').innerHTML = '<br>The best classification is ' + index + ' with an output of ' + predMax + '.';
             /* if (!isThereAnyPrediction) {
              *    document.getElementById('rightside').innerHTML = '<br>Unable to Predict';
              } */
