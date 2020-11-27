@@ -186,7 +186,7 @@
             smalImg = tf.cast(smalImg, 'float32');
             var tensor = smalImg.expandDims(0);
             tensor = tensor.div(tf.scalar(255));
-            const prediction = model.predict(tensor);
+            const prediction = model.predict(tensor[0]);
             const predictedValues = prediction.dataSync();
             var isThereAnyPrediction = false;
                         var predMax = 0;
