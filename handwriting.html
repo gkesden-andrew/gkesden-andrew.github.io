@@ -185,7 +185,9 @@
             var smalImg = tf.image.resizeBilinear(tfImg, [28, 28]);
             var tensor = smalImg.expandDims(0);
             tensor = tensor.div(tf.scalar(255));
-            tensor=tensor.slice(tensor,[0],[3]);
+            var start = [0];
+            var length = [3];
+            tensor=tensor.slice(tensor,start,length);
             const prediction = model.predict(tensor);
             const predictedValues = prediction.dataSync();
             var isThereAnyPrediction = false;
